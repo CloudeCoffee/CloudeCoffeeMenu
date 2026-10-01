@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#5358d8">
+<title>Cloud Coffee — Меню</title>
+<style>
+:root{--blue:#5157d8;--blue2:#3439a9;--paper:#f7f6fb;--ink:#171a45;--muted:#777a98;--line:#ececf4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#e9e9f5;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink)}
+.app{width:min(100%,520px);min-height:100vh;margin:auto;background:var(--paper)}
+.hero{padding:36px 20px 28px;text-align:center;color:white;background:radial-gradient(circle at 85% 10%,#ffffff2e,transparent 25%),linear-gradient(145deg,#686ee7,var(--blue2));border-radius:0 0 34px 34px}
+.cloud{font:italic 700 44px Georgia,serif;letter-spacing:-2px;margin:0}.hero p{margin:7px 0 0;color:#ffffffc9}
+.controls{position:sticky;top:0;z-index:5;padding:14px 14px 12px;background:#f7f6fbeb;backdrop-filter:blur(14px)}
+.search{width:100%;border:0;outline:0;background:white;border-radius:18px;padding:15px 17px;font-size:16px;box-shadow:0 6px 20px #2225550b}
+.tabs{display:flex;gap:8px;overflow:auto;margin-top:11px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{border:0;background:white;color:#70738e;border-radius:999px;padding:10px 14px;white-space:nowrap;font-weight:750}.tab.active{background:var(--blue);color:white}
+.content{padding:4px 14px 34px}.section{scroll-margin-top:125px;margin:20px 0 28px}.section>h2{font:700 27px Georgia,serif;margin:0 4px 11px}
+.card{background:white;border-radius:24px;padding:4px 16px;box-shadow:0 8px 28px #25294e0d}
+.item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}.item:last-child{border-bottom:0}
+.item h3{font-size:16px;margin:0}.item p{font-size:12px;line-height:1.4;color:var(--muted);margin:5px 0 0;max-width:280px}.item strong{white-space:nowrap;font-size:15px}
+.empty{display:none;text-align:center;padding:50px 20px;color:var(--muted)}
+.footer{text-align:center;color:#aaa;padding:0 0 28px;font-size:12px}
+.menu-status{margin:12px 14px;padding:14px;border-radius:16px;background:#fff5db;color:#655020;font-size:13px;line-height:1.5}.menu-status button{display:block;margin-top:10px}.menu-status[hidden],.menu-status button[hidden]{display:none}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="hero"><h1 class="cloud">Cloud Coffee</h1><p>Больше, чем кофе ☁️</p></header>
+<div class="controls">
+<input id="search" class="search" type="search" placeholder="🔎  Найти напиток…">
+<div class="tabs"><button class="tab" data-cat="Кофе">Кофе</button><button class="tab" data-cat="Матча">Матча</button><button class="tab" data-cat="Чай">Чай</button><button class="tab" data-cat="Какао">Какао</button><button class="tab" data-cat="Холодные">Холодные</button><button class="tab" data-cat="Добавки">Добавки</button></div>
+</div>
+<div id="menu-status" class="menu-status" role="status" aria-live="polite" hidden><span id="menu-message"></span><button id="menu-retry" class="tab" hidden>Попробовать снова</button></div>
+<div class="content"><section class="section" data-section="Кофе"><h2>Кофе</h2><div class="card"><article class="item" data-name="espresso / doppio горячий / холодный">
+          <div><h3>Espresso | doppio</h3><p>Горячий / холодный</p></div>
+          <strong>800 ₸ / 1 500 ₸</strong>
+        </article><article class="item" data-name="americano">
+          <div><h3>Americano</h3></div>
+          <strong>1 300 ₸</strong>
+        </article><article class="item" data-name="latte горячий / холодный">
+          <div><h3>Latte</h3><p>Горячий / холодный</p></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="cappuccino горячий / холодный">
+          <div><h3>Cappuccino</h3><p>Горячий / холодный</p></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="flat white 200 мл">
+          <div><h3>Flat white</h3><p>200 мл</p></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="mocha (мокка) ">
+          <div><h3>Mocha (мокка)</h3></div>
+          <strong>1 800 ₸</strong>
+        </article><article class="item" data-name="raff солёная карамель / ваниль">
+          <div><h3>Raff</h3><p>Солёная карамель / ваниль</p></div>
+          <strong>1 900 ₸</strong>
+        </article><article class="item" data-name="bambl ">
+          <div><h3>Bambl</h3></div>
+          <strong>2 200 ₸</strong>
+        </article><article class="item" data-name="espresso tonik ">
+          <div><h3>Espresso Tonik</h3></div>
+          <strong>2 100 ₸</strong>
+        </article></div></section><section class="section" data-section="Матча"><h2>Матча</h2><div class="card"><article class="item" data-name="matcha latte green / blue / pink">
+          <div><h3>Matcha Latte</h3><p>green / blue / pink</p></div>
+          <strong>1 800 ₸</strong>
+        </article><article class="item" data-name="matcha bambl ">
+          <div><h3>Matcha bambl</h3></div>
+          <strong>2 000 ₸</strong>
+        </article><article class="item" data-name="matcha tonik ">
+          <div><h3>Matcha tonik</h3></div>
+          <strong>2 000 ₸</strong>
+        </article><article class="item" data-name="sky matcha ">
+          <div><h3>Sky Matcha</h3></div>
+          <strong>2 200 ₸</strong>
+        </article><article class="item" data-name="matcha sunrise ">
+          <div><h3>Matcha Sunrise</h3></div>
+          <strong>2 600 ₸</strong>
+        </article></div></section><section class="section" data-section="Чай"><h2>Чай</h2><div class="card"><article class="item" data-name="чай листовой green / black">
+          <div><h3>Чай листовой</h3><p>green / black</p></div>
+          <strong>1 400 ₸</strong>
+        </article><article class="item" data-name="чай клубника–черника ">
+          <div><h3>Чай Клубника–Черника</h3></div>
+          <strong>1 400 ₸</strong>
+        </article><article class="item" data-name="чай манго–маракуйя ">
+          <div><h3>Чай Манго–Маракуйя</h3></div>
+          <strong>1 400 ₸</strong>
+        </article><article class="item" data-name="чай латте ваниль ">
+          <div><h3>Чай Латте Ваниль</h3></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="чай облепиховый ">
+          <div><h3>Чай Облепиховый</h3></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="чай марроканский ">
+          <div><h3>Чай Марроканский</h3></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="чай имбирный ">
+          <div><h3>Чай Имбирный</h3></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="глинтвейн non-alcoholic">
+          <div><h3>Глинтвейн</h3><p>non-alcoholic</p></div>
+          <strong>1 500 ₸</strong>
+        </article></div></section><section class="section" data-section="Какао"><h2>Какао</h2><div class="card"><article class="item" data-name="какао ">
+          <div><h3>Какао</h3></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="айс какао ">
+          <div><h3>Айс Какао</h3></div>
+          <strong>1 500 ₸</strong>
+        </article></div></section><section class="section" data-section="Холодные"><h2>Холодные</h2><div class="card"><article class="item" data-name="манго-маракуйя ">
+          <div><h3>Манго-Маракуйя</h3></div>
+          <strong>1 400 ₸</strong>
+        </article><article class="item" data-name="апельсин-маракуйя ">
+          <div><h3>Апельсин-Маракуйя</h3></div>
+          <strong>1 400 ₸</strong>
+        </article><article class="item" data-name="тропический ">
+          <div><h3>Тропический</h3></div>
+          <strong>1 400 ₸</strong>
+        </article><article class="item" data-name="айс ти клубника-черника ">
+          <div><h3>Айс Ти Клубника-Черника</h3></div>
+          <strong>1 500 ₸</strong>
+        </article><article class="item" data-name="айс ти латте ваниль ">
+          <div><h3>Айс Ти Латте Ваниль</h3></div>
+          <strong>1 500 ₸</strong>
+        </article></div></section><section class="section" data-section="Добавки"><h2>Добавки</h2><div class="card"><article class="item" data-name="альтернативное молоко кокосовое / миндальное / овсяное">
+          <div><h3>Альтернативное молоко</h3><p>кокосовое / миндальное / овсяное</p></div>
+          <strong>+600 ₸</strong>
+        </article><article class="item" data-name="безлактозное молоко ">
+          <div><h3>Безлактозное молоко</h3></div>
+          <strong>+400 ₸</strong>
+        </article><article class="item" data-name="сиропы карамель, солёная карамель, ваниль, кокос, шоколад, лесной орех, груша, мята, лаванда">
+          <div><h3>Сиропы</h3><p>карамель, солёная карамель, ваниль, кокос, шоколад, лесной орех, груша, мята, лаванда</p></div>
+          <strong>+200 ₸</strong>
+        </article><article class="item" data-name="декаф ">
+          <div><h3>Декаф</h3></div>
+          <strong>+500 ₸</strong>
+        </article><article class="item" data-name="мёд ">
+          <div><h3>Мёд</h3></div>
+          <strong>+300 ₸</strong>
+        </article><article class="item" data-name="молоко ">
+          <div><h3>Молоко</h3></div>
+          <strong>+200 ₸</strong>
+        </article><article class="item" data-name="корица ">
+          <div><h3>Корица</h3></div>
+          <strong>+100 ₸</strong>
+        </article></div></section><div class="empty" id="empty">Ничего не найдено</div></div>
+<div class="footer">PaydaNFC</div>
+</main>
+<script>
+// Подключение Google Таблицы Cloud Coffee.
+// Вставьте ссылку на Google Таблицу с доступом «Все, у кого есть ссылка — Читатель»
+// либо опубликованную CSV-ссылку. Пока ссылка пустая, используется встроенное меню.
+const GOOGLE_MENU = { url: "https://docs.google.com/spreadsheets/d/e/2PACX-1vQn7ySQ_nQhIpYrB_l__k_SfilkMWbWUrK9lP1O8jwgRfd7oLfnMTvTjn1gTCWj_R65qQeK52Hm1e0Q/pub?output=csv", sheetName: "Меню" };
+// Первая строка листа: Категория | Название | Цена | Описание | Показывать
+// Цена: число (1500), надбавка (+600) или несколько цен (800 ₸ / 1 500 ₸).
+// Показывать: Да / Нет. Пустое значение означает Да.
+
+const content = document.querySelector('.content');
+const tabsContainer = document.querySelector('.tabs');
+const search = document.getElementById('search');
+const empty = document.getElementById('empty');
+const statusBox = document.getElementById('menu-status');
+const statusMessage = document.getElementById('menu-message');
+const retry = document.getElementById('menu-retry');
+let tabs = [], sections = [];
+
+function connectMenuControls() {
+  tabs = [...tabsContainer.querySelectorAll('.tab')];
+  sections = [...content.querySelectorAll('.section')];
+  tabs.forEach((tab,index) => {
+    tab.classList.toggle('active',index===0);
+    tab.onclick = () => {
+      tabs.forEach(t=>t.classList.toggle('active',t===tab));
+      sections.find(s=>s.dataset.section===tab.dataset.cat)?.scrollIntoView({behavior:'smooth',block:'start'});
+    };
+  });
+  applySearch();
+}
+
+function applySearch() {
+  const query = search.value.trim().toLowerCase();
+  let any = false;
+  sections.forEach(section => {
+    let shown = false;
+    section.querySelectorAll('.item').forEach(item => {
+      const matches = (item.textContent+' '+section.dataset.section).toLowerCase().includes(query);
+      item.style.display=matches?'flex':'none';
+      shown ||= matches;
+    });
+    section.style.display=shown?'block':'none';
+    any ||= shown;
+  });
+  empty.textContent=query?'Ничего не найдено':'Сейчас нет доступных позиций. Уточните меню у бариста.';
+  empty.style.display=any?'none':'block';
+}
+
+function readCSV(text) {
+  const rows=[]; let row=[],cell='',quoted=false;
+  text=text.replace(/^\uFEFF/,'');
+  for(let i=0;i<text.length;i++) {
+    const c=text[i];
+    if(quoted) {
+      if(c==='"' && text[i+1]==='"'){cell+='"';i++;}
+      else if(c==='"') quoted=false;
+      else cell+=c;
+    } else if(c==='"' && cell==='') quoted=true;
+    else if(c===','){row.push(cell);cell='';}
+    else if(c==='\r'||c==='\n'){
+      if(c==='\r'&&text[i+1]==='\n')i++;
+      row.push(cell);rows.push(row);row=[];cell='';
+    } else cell+=c;
+  }
+  if(quoted)throw new Error('Незакрытая кавычка в CSV');
+  if(cell||row.length){row.push(cell);rows.push(row);}
+  return rows.filter(r=>r.some(v=>v.trim()));
+}
+
+function priceLabel(value) {
+  const v=value.trim();
+  const compact=v.replace(/[\s\u00a0\u202f]/g,'').replace(/(?:₸|тг\.?|kzt)$/i,'');
+  if(/^\+?\d+(?:[.,]\d{1,2})?$/.test(compact)) {
+    const n=Number(compact.replace(',','.'));
+    if(!Number.isFinite(n))throw new Error('Некорректная цена');
+    return (compact.startsWith('+')?'+':'')+new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(n)+' ₸';
+  }
+  if(v.includes('/'))return v.split('/').map(part=>priceLabel(part)).join(' / ');
+  throw new Error('Укажите цену числом или разделите несколько цен знаком /');
+}
+
+function parseMenu(text) {
+  const rows=readCSV(text);
+  if(!rows.length)throw new Error('Пустая таблица');
+  const headers=rows.shift().map(x=>x.trim().toLowerCase());
+  const index=Object.fromEntries(['категория','название','цена','описание','показывать'].map(h=>[h,headers.indexOf(h)]));
+  for(const h of ['категория','название','цена'])if(index[h]<0)throw new Error('Не найден столбец '+h);
+  const menu=new Map();
+  rows.forEach((row,i)=>{
+    const get=key=>index[key]<0?'':(row[index[key]]||'').trim();
+    const visible=get('показывать').toLowerCase();
+    if(['нет','false','0','no'].includes(visible))return;
+    if(!['','да','true','1','yes'].includes(visible))throw new Error('Строка '+(i+2)+': укажите Да или Нет');
+    const category=get('категория'),name=get('название');
+    if(!category||!name)throw new Error('Строка '+(i+2)+': нет категории или названия');
+    const item={name,description:get('описание'),price:priceLabel(get('цена'))};
+    if(!menu.has(category))menu.set(category,[]);
+    menu.get(category).push(item);
+  });
+  return menu;
+}
+
+function menuURL(link) {
+  const url=new URL(link);
+  if(url.protocol!=='https:'||url.hostname!=='docs.google.com')throw new Error('Нужна ссылка https://docs.google.com/spreadsheets/…');
+  if(/^\/spreadsheets\/d\/e\/[^/]+\/pub\/?$/.test(url.pathname)) {
+    url.searchParams.set('output','csv');return url.href;
+  }
+  const id=url.pathname.match(/^\/spreadsheets\/d\/([^/]+)/)?.[1];
+  if(!id||id==='e')throw new Error('Неверная ссылка на таблицу');
+  const result=new URL('https://docs.google.com/spreadsheets/d/'+encodeURIComponent(id)+'/gviz/tq');
+  result.searchParams.set('tqx','out:csv');result.searchParams.set('headers','1');
+  const gid=url.searchParams.get('gid')||new URLSearchParams(url.hash.slice(1)).get('gid');
+  if(gid!==null&&gid!=='')result.searchParams.set('gid',gid);
+  else result.searchParams.set('sheet',GOOGLE_MENU.sheetName);
+  return result.href;
+}
+
+function replaceMenu(menu) {
+  const newSections=document.createDocumentFragment();
+  const newTabs=document.createDocumentFragment();
+  for(const [category,items] of menu) {
+    const tab=document.createElement('button');tab.className='tab';tab.dataset.cat=category;tab.textContent=category;newTabs.append(tab);
+    const section=document.createElement('section');section.className='section';section.dataset.section=category;
+    const h2=document.createElement('h2');h2.textContent=category;
+    const card=document.createElement('div');card.className='card';
+    for(const item of items){
+      const article=document.createElement('article');article.className='item';
+      const info=document.createElement('div');const name=document.createElement('h3');name.textContent=item.name;info.append(name);
+      if(item.description){const desc=document.createElement('p');desc.textContent=item.description;info.append(desc);}
+      const price=document.createElement('strong');price.textContent=item.price;
+      article.append(info,price);card.append(article);
+    }
+    section.append(h2,card);newSections.append(section);
+  }
+  content.querySelectorAll('.section').forEach(s=>s.remove());
+  content.insertBefore(newSections,empty);tabsContainer.replaceChildren(newTabs);connectMenuControls();
+}
+
+async function loadGoogleMenu() {
+  if(!GOOGLE_MENU.url.trim()||loadGoogleMenu.busy)return;
+  loadGoogleMenu.busy=true;retry.hidden=true;statusBox.hidden=false;
+  statusMessage.textContent='Обновляем меню. До завершения загрузки цены уточняйте у бариста.';
+  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),15000);
+  try{
+    const response=await fetch(menuURL(GOOGLE_MENU.url),{credentials:'omit',cache:'no-store',signal:controller.signal});
+    if(!response.ok)throw new Error('Google Sheets: HTTP '+response.status);
+    const text=await response.text();
+    const menu=parseMenu(text);replaceMenu(menu);statusBox.hidden=true;
+  }catch(error){
+    statusMessage.textContent='Не удалось обновить меню. Показана сохранённая версия — цены и наличие уточните у бариста.';
+    retry.hidden=false;console.warn('Загрузка меню:',error.message);
+  }finally{clearTimeout(timer);loadGoogleMenu.busy=false;}
+}
+search.addEventListener('input',applySearch);
+retry.onclick=loadGoogleMenu;
+connectMenuControls();
+loadGoogleMenu();
+
+</script>
+</body></html>
